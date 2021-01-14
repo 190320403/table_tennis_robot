@@ -1,0 +1,58 @@
+<launch>
+
+ 
+ 
+  <!-- these are the arguments you can pass this launch file, for example paused:=true -->
+  <arg name="paused" default="false"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
+
+  <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find virtual_arm_gazebo)/worlds/virtual_arm.world"/>
+    <arg name="debug" value="$(arg debug)" />
+    <arg name="gui" value="$(arg gui)" />
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+    <arg name="headless" value="$(arg headless)"/>
+  </include>
+
+
+  <include file="$(find virtual_arm_moveit)/launch/move_group.launch" >
+    <arg name="publish_monitored_planning_scene" value="true" />
+  </include>
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="/use_gui" value="false"/> 
+    <rosparam param="/source_list">[/virtual_arm/joint_states]</rosparam>
+  </node>
+
+
+
+  <param
+    name="robot_description"
+    textfile="$(find virtual_arm_description)/urdf/virtual_arm.urdf" />
+  <!-- Spawn a robot into Gazebo -->
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-file $(find virtual_arm_description)/urdf/virtual_arm.urdf -urdf -x 0 -y 0 -z 0 -model virtual_arm" />
+
+
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find virtual_arm_control)/config/virtual_arm_moveit_ros.yaml" command="load"/>
+
+  <!-- load the controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" ns="/virtual_arm" args="joint_state_controller
+                                            arm_joint_controller"/>
+
+
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+    respawn="false" output="screen">
+    <remap from="/joint_states" to="/virtual_arm/joint_states" />
+  </node>
+
+
+
+</launch>

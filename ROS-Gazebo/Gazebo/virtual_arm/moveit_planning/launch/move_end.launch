@@ -1,0 +1,9 @@
+<launch>
+
+  <node name="move_end_node" pkg="moveit_planning" type="move_end_effector.py" respawn="false" output="screen" />
+ 
+
+  <!--node name="track_ball_node" pkg="moveit_planning" type="track_ball.py" respawn="false" output="screen" /-->
+
+
+</launch>

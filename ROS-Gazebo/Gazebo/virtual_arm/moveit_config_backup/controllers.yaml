@@ -1,0 +1,15 @@
+controller_manager_ns: ''
+controller_list: 
+    - name: virtual_arm/arm_joint_controller
+      action_ns: follow_joint_trajectory
+      type: FollowJointTrajectory
+      default: true
+      joints: 
+          - Joint1
+          - Joint2
+          - Joint3
+          - Joint4
+          - Joint5
+
+
+            

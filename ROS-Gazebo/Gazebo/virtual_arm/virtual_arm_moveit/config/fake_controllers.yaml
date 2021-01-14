@@ -1,0 +1,15 @@
+controller_list:
+  - name: fake_all_parts_controller
+    joints:
+      - Joint1
+      - Joint2
+      - Joint3
+      - Joint4
+      - Joint5
+      - Joint6
+  - name: fake_bat_controller
+    joints:
+      - Joint6
+initial:  # Define initial robot poses.
+  - group: all_parts
+    pose: initial_pose

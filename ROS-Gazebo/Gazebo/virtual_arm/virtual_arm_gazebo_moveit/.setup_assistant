@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: virtual_arm_description
+    relative_path: urdf/virtual_arm.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/virtual_arm.srdf
+  CONFIG:
+    author_name: oyl
+    author_email: oyl@qq.com
+    generated_timestamp: 1598770495

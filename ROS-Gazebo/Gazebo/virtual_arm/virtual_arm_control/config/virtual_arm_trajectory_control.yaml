@@ -1,0 +1,22 @@
+virtual_arm: 
+  arm_joint_controller: 
+    type: "position_controllers/JointTrajectoryController"
+    joints: 
+      - Joint1
+      - Joint2
+      - Joint3
+      - Joint4
+      - Joint5
+      - Joint6
+    gains: 
+      Joint1: {p: 100.0, i: 1.0, d: 0.1}
+      Joint2: {p: 100.0, i: 1.0, d: 0.1}
+      Joint3: {p: 100.0, i: 1.0, d: 0.1}
+      Joint4: {p: 100.0, i: 1.0, d: 0.1}
+      Joint5: {p: 100.0, i: 1.0, d: 0.1}
+      Joint6: {p: 100.0, i: 1.0, d: 0.1}
+
+  bat_joint_controller: 
+    type: "position_controllers/JointTrajectoryController"
+    joints: 
+      - Joint6

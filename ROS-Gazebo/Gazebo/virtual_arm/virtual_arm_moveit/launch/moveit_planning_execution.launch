@@ -1,0 +1,10 @@
+<launch>
+ 
+  <include file="$(find virtual_arm_moveit)/launch/moveit_rviz.launch">
+    <arg name="rviz_config" value="true" />
+    <arg name="debug" value="false" />
+  </include>
+
+</launch>
+  
+  

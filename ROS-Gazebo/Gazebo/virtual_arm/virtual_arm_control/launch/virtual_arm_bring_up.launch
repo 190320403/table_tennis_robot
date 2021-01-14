@@ -1,0 +1,11 @@
+<launch>
+  
+  <include file="$(find virtual_arm_gazebo)/launch/virtual_arm.launch" />
+
+
+
+  <include file="$(find virtual_arm_gazebo_moveit)/launch/moveit_planning_execution.launch" />
+
+  <!--include file="$(find moveit_planning)/launch/move_end.launch" /-->
+
+</launch>

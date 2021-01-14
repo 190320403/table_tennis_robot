@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <world name="default">
+    <physics type="ode">
+      <gravity>0 0 -9.81</gravity>
+    </physics>
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <include>
+      <uri>model://table_tennis_ball</uri>
+      <pose relative_to="world" >-0.05 0.2 0.6 0 0 0</pose>
+    </include>
+  </world>
+</sdf>
