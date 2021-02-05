@@ -1,0 +1,27 @@
+--cpu Cortex-M3
+"talk_to_ros\startup_stm32f103xe.o"
+"talk_to_ros\main.o"
+"talk_to_ros\gpio.o"
+"talk_to_ros\tim.o"
+"talk_to_ros\usart.o"
+"talk_to_ros\stm32f1xx_it.o"
+"talk_to_ros\stm32f1xx_hal_msp.o"
+"talk_to_ros\stm32f1xx_hal_gpio_ex.o"
+"talk_to_ros\stm32f1xx_hal_tim.o"
+"talk_to_ros\stm32f1xx_hal_tim_ex.o"
+"talk_to_ros\stm32f1xx_hal.o"
+"talk_to_ros\stm32f1xx_hal_rcc.o"
+"talk_to_ros\stm32f1xx_hal_rcc_ex.o"
+"talk_to_ros\stm32f1xx_hal_gpio.o"
+"talk_to_ros\stm32f1xx_hal_dma.o"
+"talk_to_ros\stm32f1xx_hal_cortex.o"
+"talk_to_ros\stm32f1xx_hal_pwr.o"
+"talk_to_ros\stm32f1xx_hal_flash.o"
+"talk_to_ros\stm32f1xx_hal_flash_ex.o"
+"talk_to_ros\stm32f1xx_hal_exti.o"
+"talk_to_ros\stm32f1xx_hal_uart.o"
+"talk_to_ros\system_stm32f1xx.o"
+--library_type=microlib --strict --scatter "talk_to_ros\talk_to_ros.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "talk_to_ros.map" -o talk_to_ros\talk_to_ros.axf
