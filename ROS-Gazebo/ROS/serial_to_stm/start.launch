@@ -1,0 +1,3 @@
+<launch>
+  <node name="serial_to_stm_node" pkg="serial_to_stm" type="serial_to_stm_node"   respawn="false" output="screen" />
+</launch>
